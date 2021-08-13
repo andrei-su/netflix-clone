@@ -1,0 +1,45 @@
+.row {
+    margin-left: 20px
+}
+
+.row_posters {
+  /* display the items in the container
+    in a row */
+  display: flex;
+  /* creates horizontal scrollbar
+    for each row */
+  overflow-y: hidden;
+  overflow-x: scroll;
+  /* add padding ("space")
+    inside the row, and around
+    all the posters*/
+  padding: 20px;
+}
+
+/* hide horizontal scrollbar for
+each row */
+.row_posters::-webkit-scrollbar {
+  display: none;
+}
+
+.row_poster {
+  object-fit: contain;
+  width: 100%;
+  max-height: 300px;
+  margin-right: 10px;
+  /* transition delay for the scale
+    transform effect of 1.05 on hover  */
+  transition: transform 450ms;
+}
+
+.row_poster:hover {
+  transform: scale(1.03);
+}
+
+.row_posterLarge {
+    max-height: 600px;
+}
+
+.row_posterLarge:hover {
+  transform: scale(1.04);
+}
