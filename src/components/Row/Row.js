@@ -1,9 +1,12 @@
 import React, { useEffect, useState } from 'react';
+// Config
+import { IMAGE_BASE_URL } from '../../config';
+// Routing
 import axios from '../../routing/axios';
+// Styles
 import './Row.css'
-const base_url = 'http://image.tmdb.org/t/p/original/'
 
-function Row({ title, fetchUrl, isLargeRow }) {
+export default function Row({ title, fetchUrl, isLargeRow }) {
     const [movies, setMovies] = useState([]);
 
     useEffect(() => {
@@ -23,7 +26,7 @@ function Row({ title, fetchUrl, isLargeRow }) {
                     <img
                         key={movie.id}
                         className={`row_poster ${isLargeRow && "row_posterLarge"}`}
-                        src={`${base_url}${isLargeRow
+                        src={`${IMAGE_BASE_URL}${isLargeRow
                             ? movie.poster_path
                             : movie.backdrop_path}`}
                         alt={movie.name} />
@@ -32,5 +35,3 @@ function Row({ title, fetchUrl, isLargeRow }) {
         </div>
     )
 }
-
-export default Row

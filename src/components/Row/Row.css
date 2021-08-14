@@ -1,5 +1,8 @@
 .row {
-    margin-left: 20px
+  margin-left: 20px;
+  color: white;
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 
 .row_posters {
@@ -10,10 +13,12 @@
     for each row */
   overflow-y: hidden;
   overflow-x: scroll;
+  padding-top: 10px;
+  padding-bottom: 10px;
   /* add padding ("space")
     inside the row, and around
     all the posters*/
-  padding: 20px;
+  /* padding: 10px; */
 }
 
 /* hide horizontal scrollbar for
@@ -27,6 +32,7 @@ each row */
   width: 100%;
   max-height: 300px;
   margin-right: 10px;
+  border-radius: 3vw;
   /* transition delay for the scale
     transform effect of 1.05 on hover  */
   transition: transform 450ms;
@@ -37,7 +43,7 @@ each row */
 }
 
 .row_posterLarge {
-    max-height: 600px;
+  max-height: 600px;
 }
 
 .row_posterLarge:hover {

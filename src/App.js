@@ -1,12 +1,18 @@
 import React from 'react';
-import './App.css';
+// Routing
 import requests from './routing/requests';
+// Components
+import NavBar from './components/NavBar/NavBar';
 import Row from './components/Row/Row';
+import Banner from './components/Banner/Banner';
+// Styles
+import './App.css';
 
-function App() {
+export default function App() {
   return (
-    <div className="App">
-      {/* <Banner /> */}
+    <div className="app">
+      <NavBar />
+      <Banner fetchUrl={requests.fetchNetflixOriginals} />
       <Row
         title='NETFLIX ORIGINALS'
         fetchUrl={requests.fetchNetflixOriginals}
@@ -22,5 +28,3 @@ function App() {
     </div>
   );
 }
-
-export default App;
