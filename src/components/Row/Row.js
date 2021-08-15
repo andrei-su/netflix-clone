@@ -1,13 +1,17 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react'
 // Config
-import { IMAGE_BASE_URL } from '../../config';
+import { IMAGE_BASE_URL } from '../../config'
 // Routing
-import axios from '../../routing/axios';
+import axios from '../../routing/axios'
 // Styles
 import './Row.css'
+// Trailer
+import YouTube from 'react-youtube'
+import movieTrailer from 'movie-trailer'
 
 export default function Row({ title, fetchUrl, isLargeRow }) {
-    const [movies, setMovies] = useState([]);
+    const [movies, setMovies] = useState([])
+    const [trailerUrl, setTrailerUrl] = useState("")
 
     useEffect(() => {
         async function fetchData() {
@@ -18,6 +22,28 @@ export default function Row({ title, fetchUrl, isLargeRow }) {
         fetchData()
     }, [fetchUrl])
 
+    const opts = {
+        height: "390",
+        width: "100%",
+        playerVars: {
+            autoplay: 1
+        }
+    }
+
+    // ---!!! Trailer functionality to be improved !!!---
+    const handleClick = (movie) => {
+        if (trailerUrl) {
+            setTrailerUrl("")
+        } else {
+            movieTrailer(movie?.name || "")
+            .then((url) => {
+                const urlParams = new URLSearchParams(new URL(url).search)
+                setTrailerUrl(urlParams.get('v'))
+            })
+            .catch((error) => console.log(error))
+        }
+    }
+    
     return (
         <div className='row'>
             <h2>{title}</h2>
@@ -25,6 +51,7 @@ export default function Row({ title, fetchUrl, isLargeRow }) {
                 {movies.map(movie => (
                     <img
                         key={movie.id}
+                        onClick={() => handleClick(movie)}
                         className={`row_poster ${isLargeRow && "row_posterLarge"}`}
                         src={`${IMAGE_BASE_URL}${isLargeRow
                             ? movie.poster_path
@@ -32,6 +59,7 @@ export default function Row({ title, fetchUrl, isLargeRow }) {
                         alt={movie.name} />
                 ))}
             </div>
+            {trailerUrl && <YouTube videoId={trailerUrl} opts={opts} />}
         </div>
     )
 }
