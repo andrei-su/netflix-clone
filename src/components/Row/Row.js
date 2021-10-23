@@ -36,7 +36,8 @@ export default function Row({ title, fetchUrl, isLargeRow }) {
       key: process.env.REACT_APP_YOUTUBE_API_KEY,
     };
 
-    // ---!!! Trailer functionality to be improved !!!---
+    // ---!!! Use another API client for making requests !!!---
+    // ---!!! The current one is inefficient and uses all YouTube API quotas !!!---
     const handleClick = (movie) => {
         if (trailerId) {
             setTrailerId("");
