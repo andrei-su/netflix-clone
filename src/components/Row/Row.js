@@ -7,11 +7,12 @@ import axios from '../../routing/axios'
 import './Row.css'
 // Trailer
 import YouTube from 'react-youtube'
-import movieTrailer from 'movie-trailer'
+// Youtube search
+import ytSearch from 'youtube-search'
 
 export default function Row({ title, fetchUrl, isLargeRow }) {
     const [movies, setMovies] = useState([])
-    const [trailerUrl, setTrailerUrl] = useState("")
+    const [trailerId, setTrailerId] = useState("")
 
     useEffect(() => {
         async function fetchData() {
@@ -30,17 +31,32 @@ export default function Row({ title, fetchUrl, isLargeRow }) {
         }
     }
 
-    // ---!!! Trailer functionality to be improved !!!---
+    var yOpts = {
+      maxResults: 2,
+      key: process.env.REACT_APP_YOUTUBE_API_KEY,
+    };
+
+    // ---!!! Use another API client for making requests !!!---
+    // ---!!! The current one is inefficient and uses all YouTube API quotas !!!---
     const handleClick = (movie) => {
-        if (trailerUrl) {
-            setTrailerUrl("")
+        if (trailerId) {
+            setTrailerId("");
         } else {
-            movieTrailer(movie?.name || "")
-            .then((url) => {
-                const urlParams = new URLSearchParams(new URL(url).search)
-                setTrailerUrl(urlParams.get('v'))
-            })
-            .catch((error) => console.log(error))
+            console.log("Movie");
+            console.log(movie);
+            ytSearch(
+              movie.name
+                ? movie.name === "Lucifer"
+                  ? movie.name
+                  : movie.name + " netflix"
+                : movie.title + " trailer",
+              yOpts,
+              (error, result) => {
+                console.log(result)
+                if (error) console.log(error)
+                setTrailerId(result[0].kind === "youtube#channel" ? result[1].id : result[0].id)
+              }
+          )
         }
     }
     
@@ -59,7 +75,7 @@ export default function Row({ title, fetchUrl, isLargeRow }) {
                         alt={movie.name} />
                 ))}
             </div>
-            {trailerUrl && <YouTube videoId={trailerUrl} opts={opts} />}
+            {trailerId && <YouTube videoId={trailerId} opts={opts} />}
         </div>
     )
 }

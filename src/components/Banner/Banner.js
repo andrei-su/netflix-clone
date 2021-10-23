@@ -24,12 +24,12 @@ export default function Banner({ fetchUrl }) {
 
     // Optional funciton for truncating
     //  the description if it is too long
-    // more than X characters
-    function truncate(str, n) {
-        return str?.length > n
-            ? str.substr(0, n - 1) + "..."
-            : str;
-    }
+    //  more than X characters
+    // function truncate(str, n) {
+    //     return str?.length > n
+    //         ? str.substr(0, n - 1) + "..."
+    //         : str;
+    // }
 
 
     return (
@@ -51,7 +51,9 @@ export default function Banner({ fetchUrl }) {
                     <button className="banner_button">My List</button>
                 </div>
                 <h1 className="banner_description">
-                    {truncate(movie?.overview, 500)}
+                  {movie?.overview}
+                  {/* Optional truncate for long texts 
+                    {truncate(movie?.overview, 500)} */}
                 </h1>
             </div>
             <div className="banner_fadeBottom" />
