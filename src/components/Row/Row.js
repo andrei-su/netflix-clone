@@ -46,9 +46,7 @@ export default function Row({ title, fetchUrl, isLargeRow }) {
             console.log(movie);
             ytSearch(
               movie.name
-                ? movie.name === "Lucifer"
-                  ? movie.name
-                  : movie.name + " netflix"
+                ? movie.name + " netflix trailer"
                 : movie.title + " trailer",
               yOpts,
               (error, result) => {

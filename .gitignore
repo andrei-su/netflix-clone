@@ -11,6 +11,9 @@ pids
 *.seed
 *.pid.lock
 
+# Doc images
+doc-img
+
 # Firebase deployment
 .firebaserc
 .firebase
