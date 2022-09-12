@@ -62,19 +62,19 @@ The project is online:
 # Gallery
 
 <p align="center">
-    <img alt="LinkedIn clone main page"  src="./images/n0.png"/>
+    <img alt="Netflix clone main wallpaper top"  src="./images/n0.png"/>
 </p>
 <p align="center">
-    <img alt="LinkedIn clone main page"  src="./images/n1.png"/>
+    <img alt="Netflix clone active play button"  src="./images/n1.png"/>
 </p>
 <p align="center">
-    <img alt="LinkedIn clone main page"  src="./images/n2.png"/>
+    <img alt="Netflix clone changing banner"  src="./images/n2.png"/>
 </p>
 <p align="center">
-    <img alt="LinkedIn clone main page"  src="./images/n3.png"/>
+    <img alt="Netflix clone rows, row posters and categories display"  src="./images/n3.png"/>
 </p>
 <p align="center">
-    <img alt="LinkedIn clone main page"  src="./images/n4.png"/>
+    <img alt="Netflix clone open movie trailer feature showcase"  src="./images/n4.png"/>
 </p>
 
 <br>
