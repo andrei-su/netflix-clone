@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 // Components
 import HomeScreen from './screens/HomeScreen/HomeScreen';
+import ProfileScreen from './screens/ProfileScreen/ProfileScreen';
 import LoginScreen from './screens/LoginScreen/LoginScreen';
 // Styles
 import './App.css';
@@ -29,8 +30,7 @@ export default function App() {
     });
 
     return unsubscribe;
-		// eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [dispatch]);
 
   return (
     <div className="app">
@@ -39,6 +39,9 @@ export default function App() {
           <LoginScreen />
         ) : (
           <Switch>
+            <Route path="/profile">
+              <ProfileScreen />
+            </Route>
             <Route exact path="/">
               <HomeScreen />
             </Route>
