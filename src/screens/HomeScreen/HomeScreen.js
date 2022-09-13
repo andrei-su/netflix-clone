@@ -1,10 +1,10 @@
 import React from "react";
 // Routing
-import requests from "../routing/requests";
+import requests from "../../routing/requests";
 // Components
-import NavBar from "../components/NavBar/NavBar";
-import Row from "../components/Row/Row";
-import Banner from "../components/Banner/Banner";
+import NavBar from "../../components/NavBar/NavBar";
+import Row from "../../components/Row/Row";
+import Banner from "../../components/Banner/Banner";
 import './HomeScreen.css';
 
 export default function HomeScreen() {
