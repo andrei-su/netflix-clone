@@ -2,7 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 // Components
 import HomeScreen from './screens/HomeScreen/HomeScreen';
-import LoginScreen from './screens/LoginScreen/LoginScreen.js';
+import LoginScreen from './screens/LoginScreen/LoginScreen';
 // Styles
 import './App.css';
 
