@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { NETFLIX_LOGO_URL } from "../../config";
-import SignUpScreen from './screens/SignUpScreen/SignUpScreen';
+import SignUpScreen from '../../screens/SignUpScreen/SignUpScreen';
 import "./LoginScreen.css";
 
 function LoginScreen() {
