@@ -4,6 +4,7 @@ import SignUpScreen from './screens/SignUpScreen/SignUpScreen';
 import "./LoginScreen.css";
 
 function LoginScreen() {
+	// eslint-disable-next-line
 	const [signIn, setSignIn] = useState(false);
 
 	return (
